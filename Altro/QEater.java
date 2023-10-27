@@ -8,7 +8,7 @@ public class QEater {
         while (!done) {
             System.out.println("Voglio una Q");
             String input = in.nextLine();
-            if (input.equals("Q")) {
+            if (input.equalsIgnoreCase("Q")) {
                 System.out.println("Grazie!");
                 done = true;
             } else
