@@ -36,6 +36,6 @@ public class SimpleCar {
     }
 
     public java.lang.String toString() {
-        return String.format("SimpleCar: marcia = %d, velocità = %d km/h", gear, speed);
+        return String.format("SimpleCar: marcia = %d, velocità = %.2f km/h", gear, speed);
     }
 }
