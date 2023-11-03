@@ -1,27 +1,41 @@
-import java.util.Scanner;
-
 public class SimpleCar {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = 0, max = 0, res = 0, i = 1;
+    private int gear;
+    private final static int MIN_GEAR = 0;
+    private final static int MAX_GEAR = 6;
 
-        do {
-            System.out.print("inserisci n > 0: ");
-            n = sc.nextInt();
-        } while (n <= 0);
+    private double speed;
+    private final static double INITIAL_SPEED = 10;
+    private final static double SPEED_DECREMENT_PERCENT = 0.7;
+    private final static double SPEED_INCREMENT_PERCENT = 1.5;
 
-        do {
-            System.out.print("inserisci max > n: ");
-            max = sc.nextInt();
-        } while (max <= n);
+    public SimpleCar() {
+        this.gear = 0;
+        this.speed = 0;
+    }
 
-        sc.close();
-        System.out.println(String.format("multipli di %d in [%d, %d]", n, n, max));
+    public void speedUp() {
+        if (speed == 0)
+            speed = INITIAL_SPEED;
+        else
+            speed *= SPEED_INCREMENT_PERCENT;
+    }
 
-        do {
-            res = n * i++;
-            if (res <= max)
-                System.out.println(res);
-        } while (res <= max);
+    public void brake() {
+        if (speed != 0)
+            speed *= SPEED_DECREMENT_PERCENT;
+    }
+
+    public void gearUp() {
+        if (gear < MAX_GEAR)
+            gear++;
+    }
+
+    public void gearDown() {
+        if (gear > MIN_GEAR)
+            gear--;
+    }
+
+    public java.lang.String toString() {
+        return String.format("SimpleCar: marcia = %d, velocità = %d km/h", gear, speed);
     }
 }
