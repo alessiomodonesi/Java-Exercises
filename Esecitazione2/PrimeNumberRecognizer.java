@@ -5,8 +5,10 @@ public class PrimeNumberRecognizer {
         Scanner sc = new Scanner(System.in);
         int n = 0;
 
-        System.out.print("inserisci n: ");
-        n = sc.nextInt();
+        do {
+            System.out.print("inserisci n: ");
+            n = sc.nextInt();
+        } while (n <= 1);
         sc.close();
 
         for (int i = 2; i <= n / 2; i++) {
