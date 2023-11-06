@@ -8,7 +8,7 @@ public class PrimeNumberRecognizer {
         do {
             System.out.print("inserisci n: ");
             n = sc.nextInt();
-        } while (n <= 1);
+        } while (!(n > 1));
         sc.close();
 
         for (int i = 2; i <= n / 2; i++) {

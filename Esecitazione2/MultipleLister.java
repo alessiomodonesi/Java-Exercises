@@ -8,12 +8,12 @@ public class MultipleLister {
         do {
             System.out.print("inserisci n > 0: ");
             n = sc.nextInt();
-        } while (n <= 0);
+        } while (!(n > 0));
 
         do {
             System.out.print("inserisci max > n: ");
             max = sc.nextInt();
-        } while (max <= n);
+        } while (!(max > n));
 
         sc.close();
         System.out.println(String.format("multipli di %d in [%d, %d]", n, n, max));
@@ -22,6 +22,6 @@ public class MultipleLister {
             res = n * i++;
             if (res <= max)
                 System.out.println(res);
-        } while (res <= max);
+        } while (!(res > max));
     }
 }
