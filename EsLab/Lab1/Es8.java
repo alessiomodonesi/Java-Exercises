@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Es1Lab {
+public class Es8 {
     public static void main(String[] args) {
         String tmp = "";
         Scanner input = new Scanner(System.in);
