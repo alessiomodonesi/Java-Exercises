@@ -8,7 +8,7 @@ public class Es3 {
         input.close();
 
         String[] results = string.split(" ");
-        for (String a : results)
-            System.out.println(a);
+        for (int i = results.length - 1; i >= 0; i--)
+            System.out.println(results[i]);
     }
 }
