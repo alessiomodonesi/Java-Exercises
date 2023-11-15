@@ -9,11 +9,10 @@ public class Es8 {
 
         // Normalize the angle in the range (-2π, 2π)
         while (alpha <= -2 * Math.PI || alpha > 2 * Math.PI) {
-            if (alpha <= -2 * Math.PI) {
+            if (alpha <= -2 * Math.PI)
                 alpha += 2 * Math.PI;
-            } else if (alpha > 2 * Math.PI) {
+            else if (alpha > 2 * Math.PI)
                 alpha -= 2 * Math.PI;
-            }
         }
 
         System.out.println("angolo = %.3f rad\n".formatted(alpha / Math.PI) + //
