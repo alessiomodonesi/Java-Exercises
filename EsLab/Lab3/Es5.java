@@ -15,6 +15,6 @@ public class Es5 {
         double c = input.nextDouble();
         input.close();
 
-        System.out.println(String.format("%f + %f + %f = %f", a, b, c, a + b + c));
+        System.out.println(String.format("%.2f + %.2f + %.2f = %.2f", a, b, c, a + b + c));
     }
 }

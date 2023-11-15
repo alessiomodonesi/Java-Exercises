@@ -12,6 +12,6 @@ public class Es4 {
         for (String a : numbers)
             results += Double.parseDouble(a);
 
-        System.out.println(String.format("%s + %s + %s = %f", numbers[0], numbers[1], numbers[2], results));
+        System.out.println(String.format("%s + %s + %s = %.2f", numbers[0], numbers[1], numbers[2], results));
     }
 }
