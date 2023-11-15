@@ -10,6 +10,6 @@ public class Es6 {
         double cfr = 2 * Math.PI * r;
         double area = Math.PI * (r * r);
 
-        System.out.println(String.format("r: %.2f, cfr = %.2f, A = %.2f", r, cfr, area));
+        System.out.println("r: %.2f, cfr = %.2f, A = %.2f".formatted(r, cfr, area));
     }
 }
