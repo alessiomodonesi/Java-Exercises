@@ -15,7 +15,10 @@ public class Es7 {
         double alpha = Math.toDegrees(Math.asin(a / c));
         double beta = Math.toDegrees(Math.acos(a / c));
 
-        System.out.println("Ipotenusa: %.2f cm \nPerimetro: %.2f cm \nArea: %.2f cm2 \nAlpha: %.2f° \nBeta: %.2f°"
-                .formatted(c, perimeter, area, alpha, beta));
+        System.out.println("Ipotenusa: %.2f cm\n".formatted(c) + //
+                "Perimetro: %.2f cm\n".formatted(perimeter) + //
+                "Area: %.2f cm2\n".formatted(area) + //
+                "Alpha: %.2f°\n".formatted(alpha) + //
+                "Beta: %.2f°".formatted(beta));
     }
 }
