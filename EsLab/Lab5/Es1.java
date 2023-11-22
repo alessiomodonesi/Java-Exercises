@@ -3,23 +3,23 @@ import java.util.Scanner;
 public class Es1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        double sum = 0;
-        double squares = 0;
-        int count = 0;
+        int count = 0; // numero di valori
+        double tot = 0; // somma dei valori
+        double squares = 0; // somma dei valori al quadrato
 
-        System.out.println("Inserisci i valori (termina con una sequenza non numerica):");
+        System.out.println("Inserisci i valori:");
 
         while (input.hasNextDouble()) {
             double value = input.nextDouble();
-            sum += value;
-            squares += value * value;
             count++;
+            tot += value;
+            squares += value * value;
         }
         input.close();
 
         if (count > 1) {
-            double average = sum / count;
-            double deviation = Math.sqrt((squares - (sum * sum) / count) / (count - 1));
+            double average = tot / count;
+            double deviation = Math.sqrt((squares - (tot * tot) / count) / (count - 1));
             System.out.println("Valore medio: " + average);
             System.out.println("Deviazione standard: " + deviation);
         } else if (count == 1)
