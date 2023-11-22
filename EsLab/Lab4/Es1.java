@@ -4,19 +4,19 @@ import java.util.Scanner;
 public class Es1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        String[] array = new String[3];
+        String[] arr = new String[3];
 
         System.out.print("s1?: ");
-        array[0] = input.nextLine();
+        arr[0] = input.nextLine();
         System.out.print("s2?: ");
-        array[1] = input.nextLine();
+        arr[1] = input.nextLine();
         System.out.print("s3?: ");
-        array[2] = input.nextLine();
+        arr[2] = input.nextLine();
         input.close();
 
-        Arrays.sort(array);
+        Arrays.sort(arr);
         System.out.println("Le stringhe in ordine lessicografico crescente sono:");
-        for (String s : array)
+        for (String s : arr)
             System.out.println(s);
     }
 }
