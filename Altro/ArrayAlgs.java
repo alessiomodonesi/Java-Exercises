@@ -14,7 +14,7 @@ public class ArrayAlgs {
     public static int[] randomIntArray(int length, int n) {
         int[] a = new int[length];
         for (int i = 0; i < a.length; i++)
-            // a[i] e` un num intero casuale tra 0 e n-1 inclusi
+            // a[i] è un num intero casuale tra 0 e n-1 inclusi
             a[i] = (int) (n * Math.random());
         return a;
     }
@@ -79,7 +79,7 @@ public class ArrayAlgs {
     public static void mergeSort(int[] v, int vSize) {
         if (vSize < 2)
             return; // caso base
-        int mid = vSize / 2; // dividiamo circa a meta’
+        int mid = vSize / 2; // dividiamo circa a metà
         int[] left = new int[mid];
         int[] right = new int[vSize - mid];
         System.arraycopy(v, 0, left, 0, mid);
@@ -105,11 +105,11 @@ public class ArrayAlgs {
             v[i++] = v2[i2++];
     }
 
-    public static void insertionSort(int[] v, int vSize) { // il ciclo inizia da 1 perché il primo elemento non richiede
-                                                           // attenzione
+    public static void insertionSort(int[] v, int vSize) {
+        // il ciclo inizia da 1 perché il primo elemento non richiede attenzione
         for (int i = 1; i < vSize; i++) {
             int temp = v[i]; // nuovo el. da inserire
-            // j va definita fuori dal ciclo perche` il
+            // j va definita fuori dal ciclo perchè il
             // suo valore finale viene usato in seguito
             int j;
             // sposta di uno verso destra tutti gli el. a
