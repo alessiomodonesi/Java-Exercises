@@ -1,37 +1,37 @@
 public class BankAccount {
-    /**
-     * Un conto bancario ha un saldo
-     * modificabile tramite depositi e prelievi
-     */
+
+    private double balance;
+    private int accountNumber;
+    private static int lastNumberAssigned = 100;
+
     public BankAccount() {
         balance = 0;
+        lastNumberAssigned++;
+        accountNumber = lastNumberAssigned;
     }
 
-    public BankAccount(double initialBalance) {
-        balance = initialBalance;
+    public boolean deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            return true;
+        }
+        return false;
     }
 
-    public void deposit(double amount) {
-        balance = balance + amount;
+    public boolean withdraw(double amount) {
+        if (amount > 0 && balance >= amount) {
+            balance -= amount;
+            return true;
+        }
+        return false;
     }
 
-    /**
-     * Preleva denaro dal conto
-     * 
-     * @param amount importo da prelevare
-     */
-    public void withdraw(double amount) {
-        balance = balance - amount;
-    }
-
-    /**
-     * Ispeziona saldo attuale
-     * 
-     * @return saldo attuale
-     */
     public double getBalance() {
         return balance;
     }
 
-    private double balance;
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
 }
