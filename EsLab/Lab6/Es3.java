@@ -13,12 +13,6 @@ public class Es3 {
 
         System.out.print("s2?: ");
         String s2 = scanner.nextLine();
-        if (s2.length() == 0) {
-            System.out.println("s2 è sottostringa di s1");
-            scanner.close();
-            return;
-        }
-
         scanner.close();
 
         if (checkSubstring(s1, s2))
@@ -28,6 +22,9 @@ public class Es3 {
     }
 
     private static boolean checkSubstring(String s1, String s2) {
+        if (s2.length() == 0)
+            return true;
+
         for (int i = 0; i <= s1.length() - s2.length(); i++) {
             boolean match = true;
             for (int j = 0; j < s2.length(); j++) {
