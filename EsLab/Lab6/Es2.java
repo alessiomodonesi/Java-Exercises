@@ -19,9 +19,14 @@ public class Es2 {
                     words[i] = firstLetter + otherLetters;
 
                     for (int j = 0; j < words[i].length(); j++) {
-                        if (words[i].charAt(j) == '\'') // funziona, ma solo in questo caso specifico
-                            words[i] = words[i].substring(0, 1) + '\'' + Character.toUpperCase(words[i].charAt(j + 1))
-                                    + words[i].substring(3, words[i].length());
+                        char[] chars = words[i].toCharArray();
+                        if (chars[j] == '\'') {
+                            j++;
+                            chars[j] = Character.toUpperCase(chars[j]);
+                            words[i] = "";
+                            for (char c : chars)
+                                words[i] += c;
+                        }
                     }
                 }
 
