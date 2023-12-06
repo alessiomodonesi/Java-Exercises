@@ -2,8 +2,9 @@ import java.util.Scanner;
 
 public class ArrayAlgsTester {
     public static void main(String[] args) {
+        int length = 5;
         Scanner in = new Scanner(System.in);
-        int[] array = ArrayAlgs.randomIntArray(25, 100);
+        int[] array = ArrayAlgs.randomIntArray(length, 10);
 
         System.out.printf("Elenco comandi: %n" +
                 "Q -> Quit: termina il programma %n" +
@@ -24,15 +25,15 @@ public class ArrayAlgsTester {
                     return;
 
                 case "P":
-                    System.out.println(ArrayAlgs.printArray(array, array.length));
+                    System.out.println(ArrayAlgs.printArray(array, length));
                     break;
 
                 case "m":
-                    System.out.printf("Valore minimo dell'array: %d %n", ArrayAlgs.findMin(array, array.length));
+                    System.out.printf("Valore minimo dell'array: %d %n", ArrayAlgs.findMin(array, length));
                     break;
 
                 case "M":
-                    System.out.printf("Valore massimo dell'array: %d %n", ArrayAlgs.findMax(array, array.length));
+                    System.out.printf("Valore massimo dell'array: %d %n", ArrayAlgs.findMax(array, length));
                     break;
 
                 case "r":
@@ -40,8 +41,9 @@ public class ArrayAlgsTester {
                         System.out.print("Inserisci l'indice: ");
                         int i = Integer.parseInt(in.next());
 
-                        ArrayAlgs.remove(array, array.length, i);
-                        System.out.printf("Elemento %d rimosso", array[i]);
+                        ArrayAlgs.remove(array, length, i);
+                        length--;
+                        array = ArrayAlgs.resize(array, length);
                     } catch (IllegalArgumentException | ArrayIndexOutOfBoundsException e) {
                         System.err.println(e);
                     }
@@ -52,9 +54,9 @@ public class ArrayAlgsTester {
                         System.out.print("Inserisci l'indice: ");
                         int j = Integer.parseInt(in.next());
 
-                        ArrayAlgs.removeSorted(array, array.length, j);
-                        System.out.printf("Elemento %d rimosso, mantenendo l'ordine degli altri elementi",
-                                array[j]);
+                        ArrayAlgs.removeSorted(array, length, j);
+                        length--;
+                        array = ArrayAlgs.resize(array, length);
                     } catch (IllegalArgumentException | ArrayIndexOutOfBoundsException e) {
                         System.err.println(e);
                     }
@@ -66,10 +68,10 @@ public class ArrayAlgsTester {
                         int x = Integer.parseInt(in.next());
 
                         System.out.print("Inserisci il valore: ");
-                        int n = Integer.parseInt(in.next());
+                        int value = Integer.parseInt(in.next());
 
-                        ArrayAlgs.insert(array, array.length, x, n);
-                        System.out.printf("Elemento %d inserito in pos %d", n, x);
+                        array = ArrayAlgs.insert(array, length, x, value);
+                        length++;
                     } catch (IllegalArgumentException | ArrayIndexOutOfBoundsException e) {
                         System.err.println(e);
                     }
