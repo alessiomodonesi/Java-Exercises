@@ -1,30 +1,19 @@
 public class ArrayAlgs {
-    public static int[] resize(int[] oldArray, int newLength) {
-        if (newLength < 0 || oldArray == null)
-            throw new IllegalArgumentException();
-        int[] newArray = new int[newLength];
-        int n = oldArray.length;
-        if (newLength < n)
-            n = newLength;
-        for (int i = 0; i < n; i++)
-            newArray[i] = oldArray[i];
-        return newArray;
+    public static void remove(int[] v, int vSize, int index) {
+        v[index] = v[vSize - 1];
     }
 
-    public static int[] randomIntArray(int length, int n) {
-        int[] a = new int[length];
-        for (int i = 0; i < a.length; i++)
-            // a[i] è un num intero casuale tra 0 e n-1 inclusi
-            a[i] = (int) (n * Math.random());
-        return a;
+    public static void removeSorted(int[] v, int vSize, int index) {
+        for (int i = index; i < vSize - 1; i++)
+            v[i] = v[i + 1];
     }
 
-    public static int[] insert(int[] v, int vSize, int index, int val) {
+    public static int[] insert(int[] v, int vSize, int index, int value) {
         if (vSize == v.length)
             v = resize(v, 2 * v.length);
         for (int i = vSize; i > index; i--)
             v[i] = v[i - 1];
-        v[index] = val;
+        v[index] = value;
         return v;
     }
 
@@ -35,14 +24,6 @@ public class ArrayAlgs {
         return -1; // valore non trovato
     }
 
-    public static int findMax(int[] v, int vSize) {
-        int max = v[0];
-        for (int i = 1; i < vSize; i++)
-            if (v[i] > max)
-                max = v[i];
-        return max;
-    }
-
     public static int findMin(int[] v, int vSize) {
         int min = v[0];
         for (int i = 1; i < vSize; i++)
@@ -51,51 +32,88 @@ public class ArrayAlgs {
         return min;
     }
 
-    public static void selectionSort(int[] v, int vSize) {
+    public static int findMax(int[] v, int vSize) {
+        int max = v[0];
+        for (int i = 1; i < vSize; i++)
+            if (v[i] > max)
+                max = v[i];
+        return max;
+    }
+
+    // Ridimensiona l'array oldv attribuendogli la lunghezza newLength
+    public static int[] resize(int[] oldv, int newLength) {
+        if (newLength < 0 || oldv == null)
+            throw new IllegalArgumentException();
+        int[] newv = new int[newLength];
+        int count = oldv.length;
+        if (newLength < count)
+            count = newLength;
+        for (int i = 0; i < count; i++)
+            newv[i] = oldv[i];
+        return newv;
+    }
+
+    // Costruisce un array contenente valori casuali compresi tra 0 e n-1
+    public static int[] randomIntArray(int length, int n) {
+        int[] v = new int[length];
+        for (int i = 0; i < v.length; i++)
+            // ricordiamoci come funziona Math.random()...
+            v[i] = (int) (n * Math.random());
+        return v;
+    }
+
+    // Stampa tutti gli elementi di un array.
+    public static String printArray(int[] v, int vSize) {
+        String s = "[";
+        for (int i = 0; i < vSize; i++)
+            s = s + v[i] + " ";
+        s = s + "\b]";
+        return s;
+    }
+
+    public static void selectionSort(Comparable[] v, int vSize) {
         for (int i = 0; i < vSize - 1; i++) {
             int minPos = findMinPos(v, i, vSize - 1);
             if (minPos != i)
                 swap(v, minPos, i);
         }
-    } // abbiamo usato due metodi ausiliari, swap e findMinPos
+    }
 
-    private static void swap(int[] v, int i, int j) {
-        int temp = v[i];
+    private static void swap(Comparable[] v, int i, int j) {
+        Comparable temp = v[i];
         v[i] = v[j];
         v[j] = temp;
     }
 
-    private static int findMinPos(int[] v, int from, int to) {
+    private static int findMinPos(Comparable[] v, int from, int to) {
         int pos = from;
-        int min = v[from];
+        Comparable min = v[from];
         for (int i = from + 1; i <= to; i++)
-            if (v[i] < min) {
+            if (v[i].compareTo(min) < 0) {
                 pos = i;
                 min = v[i];
             }
         return pos;
     }
 
-    public static void mergeSort(int[] v, int vSize) {
+    public static void mergeSort(Comparable[] v, int vSize) {
         if (vSize < 2)
             return; // caso base
-        int mid = vSize / 2; // dividiamo circa a metà
-        int[] left = new int[mid];
-        int[] right = new int[vSize - mid];
+        int mid = vSize / 2; // dividiamo circa a meta’
+        Comparable[] left = new Comparable[mid];
+        Comparable[] right = new Comparable[vSize - mid];
         System.arraycopy(v, 0, left, 0, mid);
         System.arraycopy(v, mid, right, 0, vSize - mid);
-        // passi ricorsivi: ricorsione multipla (doppia)
-        mergeSort(left, mid);
+        mergeSort(left, mid); // passi ricorsivi
         mergeSort(right, vSize - mid);
-        // fusione (metodo ausiliario)
         merge(v, left, right);
     }
 
-    private static void merge(int[] v, int[] v1, int[] v2) {
+    private static void merge(Comparable[] v, Comparable[] v1,
+            Comparable[] v2) {
         int i = 0, i1 = 0, i2 = 0;
         while (i1 < v1.length && i2 < v2.length)
-            if (v1[i1] < v2[i2])
-                // prima si usa i, poi lo si incrementa...
+            if (v1[i1].compareTo(v2[i2]) < 0)
                 v[i++] = v1[i1++];
             else
                 v[i++] = v2[i2++];
@@ -105,19 +123,32 @@ public class ArrayAlgs {
             v[i++] = v2[i2++];
     }
 
-    public static void insertionSort(int[] v, int vSize) {
-        // il ciclo inizia da 1 perché il primo elemento non richiede attenzione
+    public static void insertionSort(Comparable[] v, int vSize) {
         for (int i = 1; i < vSize; i++) {
-            int temp = v[i]; // nuovo el. da inserire
-            // j va definita fuori dal ciclo perchè il
-            // suo valore finale viene usato in seguito
+            Comparable temp = v[i]; // elemento da inserire
             int j;
-            // sposta di uno verso destra tutti gli el. a
-            // sin. di temp e > di temp partendo da destra
-            for (j = i; j > 0 && temp < v[j - 1]; j--)
+            for (j = i; j > 0 && temp.compareTo(v[j - 1]) < 0; j--)
                 v[j] = v[j - 1];
-            v[j] = temp; // inserisci temp
-        }
+            v[j] = temp;
+        } // inserisci temp in posizione
     }
 
+    public static int binarySearch(Comparable[] v, int vSize,
+            Comparable value) {
+        return binSearch(v, 0, vSize - 1, value);
+    }
+
+    private static int binSearch(Comparable[] v, int from, int to,
+            Comparable value) {
+        if (from > to)
+            return -1;// el. non trovato
+        int mid = (from + to) / 2; // circa in mezzo
+        Comparable middle = v[mid];
+        if (middle.compareTo(value) == 0)
+            return mid; // trovato
+        else if (middle.compareTo(value) < 0) // cerca a destra
+            return binSearch(v, mid + 1, to, value);
+        else // cerca a sinistra
+            return binSearch(v, from, mid - 1, value);
+    }
 }
