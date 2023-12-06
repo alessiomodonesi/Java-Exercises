@@ -2,9 +2,8 @@ import java.util.Scanner;
 
 public class ArrayAlgsTester {
     public static void main(String[] args) {
-        int length = 5;
+        int length = 0, max = 0;
         Scanner in = new Scanner(System.in);
-        int[] array = ArrayAlgs.randomIntArray(length, 10);
 
         System.out.printf("Elenco comandi: %n" +
                 "Q -> Quit: termina il programma %n" +
@@ -13,7 +12,20 @@ public class ArrayAlgsTester {
                 "M -> Max: calcola il massimo valore contenuto nell'array %n" +
                 "r i -> remove index: rimuove dall'array l'elemento di indice i %n" +
                 "R i -> Remove-sorted index: rimuove dall'array l'elemento di indice i, mantenendo l'ordine degli altri elementi %n"
-                + "I i v -> Insert index value: inserisce il valore value nella posizione specificata dall'indice index %n");
+                + "I i v -> Insert index value: inserisce il valore value nella posizione specificata dall'indice index %n%n");
+
+        try {
+            System.out.printf("Length?: ");
+            length = Integer.parseInt(in.next());
+            System.out.printf("MaxValue?: ");
+            max = Integer.parseInt(in.next());
+        } catch (IllegalArgumentException e) {
+            System.err.println(e);
+            in.close();
+            return;
+        }
+
+        int[] array = ArrayAlgs.randomIntArray(length, max);
 
         while (true) {
             System.out.printf("%nInserisci un comando: ");
