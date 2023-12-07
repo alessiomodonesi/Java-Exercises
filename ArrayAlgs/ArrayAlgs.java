@@ -40,7 +40,13 @@ public class ArrayAlgs {
         return max;
     }
 
-    // Ridimensiona l'array oldv attribuendogli la lunghezza newLength
+    /**
+     * Ridimensiona l'array oldv attribuendogli la lunghezza newLength
+     * 
+     * @param oldv      array su cui effettuare il resize
+     * @param newLength nuova lunghezza dell'array
+     * @return nuovo array di dimensione newlength
+     */
     public static int[] resize(int[] oldv, int newLength) {
         if (newLength < 0 || oldv == null)
             throw new IllegalArgumentException();
@@ -53,7 +59,13 @@ public class ArrayAlgs {
         return newv;
     }
 
-    // Costruisce un array contenente valori casuali compresi tra 0 e n-1
+    /**
+     * Costruisce un array contenente valori casuali compresi tra 0 e n-1
+     * 
+     * @param lenght lunghezza dell'array
+     * @param n      valore massimo -1
+     * @return array di valori casuali
+     */
     public static int[] randomIntArray(int length, int n) {
         int[] v = new int[length];
         for (int i = 0; i < v.length; i++)
@@ -62,7 +74,13 @@ public class ArrayAlgs {
         return v;
     }
 
-    // Stampa tutti gli elementi di un array.
+    /**
+     * Stampa tutti gli elementi di un array
+     * 
+     * @param v     array da stampare
+     * @param vSize dimensione dell'array v
+     * @return stringa contenente i valori dell'array
+     */
     public static String printArray(int[] v, int vSize) {
         String s = "[";
         for (int i = 0; i < vSize; i++)
