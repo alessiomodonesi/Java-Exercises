@@ -10,6 +10,12 @@ public class BankAccount {
         accountNumber = lastNumberAssigned;
     }
 
+    public BankAccount(double initialBalance) {
+        balance = initialBalance;
+        lastNumberAssigned++;
+        accountNumber = lastNumberAssigned;
+    }
+
     public boolean deposit(double amount) {
         if (amount > 0) {
             balance += amount;
