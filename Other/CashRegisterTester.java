@@ -1,6 +1,51 @@
 import java.util.Scanner;
 import java.util.Locale;
 
+class Coin {
+    public Coin(double value, String name) {
+        this.value = value;
+        this.name = name;
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    private double value;
+    private String name;
+}
+
+class CashRegister {
+    public CashRegister() {
+        purchase = 0;
+        payment = 0;
+    }
+
+    public void recordPurchase(double amount) {
+        double newTotal = purchase + amount;
+        purchase = newTotal;
+    }
+
+    public void enterPayment(int coinCount, Coin coinType) {
+        double amount = coinCount * coinType.getValue();
+        payment += amount;
+    }
+
+    public double giveChange() {
+        double change = payment - purchase;
+        payment = 0;
+        purchase = 0;
+        return change;
+    }
+
+    private double purchase;
+    private double payment;
+}
+
 public class CashRegisterTester {
     public static void main(String[] args) {
         CashRegister register = new CashRegister();
