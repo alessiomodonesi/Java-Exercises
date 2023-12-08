@@ -8,3 +8,5 @@ public class Pappagaller {
         in.close();
     }
 }
+
+// java Pappagaller.java < input.txt | sort > output.txt
