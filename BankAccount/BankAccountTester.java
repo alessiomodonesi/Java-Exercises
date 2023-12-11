@@ -1,5 +1,4 @@
-class BankAccount {
-
+class BankAccount implements Comparable<BankAccount> {
     private double balance;
     private int accountNumber;
     private static int lastNumberAssigned = 100;
@@ -14,6 +13,14 @@ class BankAccount {
         balance = initialBalance;
         lastNumberAssigned++;
         accountNumber = lastNumberAssigned;
+    }
+
+    public int compareTo(BankAccount obj) {
+        if (balance < obj.balance)
+            return -1;
+        if (balance > obj.balance)
+            return 1;
+        return 0;
     }
 
     public boolean deposit(double amount) {
