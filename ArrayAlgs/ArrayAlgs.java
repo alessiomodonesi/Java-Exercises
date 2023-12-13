@@ -93,6 +93,13 @@ public class ArrayAlgs {
         return s;
     }
 
+    /**
+     * Ordina un array con selezione
+     * Difficoltà computazionale O(n^2)
+     * 
+     * @param v     array da ordinare
+     * @param vSize lunghezza dell'array
+     */
     public static void selectionSort(Comparable[] v, int vSize) {
         for (int i = 0; i < vSize - 1; i++) {
             int minPos = findMinPos(v, i, vSize - 1);
@@ -118,6 +125,13 @@ public class ArrayAlgs {
         return pos;
     }
 
+    /**
+     * Ordina un array con fusione
+     * Difficoltà computazionale O(n log n)
+     * 
+     * @param v     array da ordinare
+     * @param vSize lunghezza dell'array
+     */
     public static void mergeSort(Comparable[] v, int vSize) {
         if (vSize < 2)
             return; // caso base
@@ -145,6 +159,15 @@ public class ArrayAlgs {
             v[i++] = v2[i2++];
     }
 
+    /**
+     * Ordina un array con inserimento
+     * Difficoltà computazionale:
+     * caso migliore O(n)
+     * caso peggiore O(n^2)
+     * 
+     * @param v     array da ordinare
+     * @param vSize lunghezza dell'array
+     */
     public static void insertionSort(Comparable[] v, int vSize) {
         for (int i = 1; i < vSize; i++) {
             Comparable temp = v[i]; // elemento da inserire
