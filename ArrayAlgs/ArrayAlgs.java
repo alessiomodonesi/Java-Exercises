@@ -95,7 +95,7 @@ public class ArrayAlgs {
 
     /**
      * Ordina un array con selezione
-     * Difficoltà computazionale O(n^2)
+     * Difficoltà computazionale: O(n^2)
      * 
      * @param v     array da ordinare
      * @param vSize lunghezza dell'array
@@ -127,7 +127,7 @@ public class ArrayAlgs {
 
     /**
      * Ordina un array con fusione
-     * Difficoltà computazionale O(n log n)
+     * Difficoltà computazionale: O(n log n)
      * 
      * @param v     array da ordinare
      * @param vSize lunghezza dell'array
@@ -186,7 +186,7 @@ public class ArrayAlgs {
     private static int binSearch(Comparable[] v, int from, int to,
             Comparable value) {
         if (from > to)
-            return -1;// el. non trovato
+            return -1; // el. non trovato
         int mid = (from + to) / 2; // circa in mezzo
         Comparable middle = v[mid];
         if (middle.compareTo(value) == 0)
