@@ -1,6 +1,10 @@
-public class BankAccount {
-    public BankAccount() {
+public class SimpleBankAccount {
+    public SimpleBankAccount() {
         balance = 0;
+    }
+
+    public SimpleBankAccount(double initialBalance) {
+        balance = initialBalance;
     }
 
     public void deposit(double amount) {

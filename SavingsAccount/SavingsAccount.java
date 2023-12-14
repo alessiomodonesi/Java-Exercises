@@ -1,4 +1,4 @@
-public class SavingsAccount extends BankAccount {
+public class SavingsAccount extends SimpleBankAccount {
     public SavingsAccount(double rate) {
         interestRate = rate;
     }
@@ -12,9 +12,9 @@ public class SavingsAccount extends BankAccount {
         deposit(getBalance() * interestRate / 100);
     }
 
-    public boolean deposit(double amount) {
+    public void deposit(double amount) {
         super.deposit(amount); // invoca deposit della superclasse
-        return withdraw(FEE);
+        withdraw(FEE);
     }
 
     private final static double FEE = 2.58; // euro

@@ -1,21 +1,19 @@
-public class CheckingAccount extends BankAccount {
+public class CheckingAccount extends SimpleBankAccount {
     public CheckingAccount(double initialBalance) {
-        super(initialBalance);// costruttore della superclasse
+        super(initialBalance); // costruttore della superclasse
         transactionCount = 0; // azzera conteggio transaz.
     }
 
-    public boolean deposit(double amount) // SOVRASCRITTO!!
+    public void deposit(double amount) // SOVRASCRITTO!!
     {
         super.deposit(amount); // aggiungi amount al saldo
         transactionCount++;
-        return true;
     }
 
-    public boolean withdraw(double amount) // SOVRASCRITTO!!
+    public void withdraw(double amount) // SOVRASCRITTO!!
     {
         super.withdraw(amount); // sottrai amount dal saldo
         transactionCount++;
-        return true;
     }
 
     public void deductFees() // NUOVO METODO
