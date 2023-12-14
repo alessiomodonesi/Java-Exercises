@@ -1,5 +1,5 @@
 class BankAccount implements Comparable<BankAccount> {
-    private double balance;
+    protected double balance;
     private int accountNumber;
     private static int lastNumberAssigned = 100;
 
