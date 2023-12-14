@@ -21,6 +21,14 @@ public class ArrayAlgs {
         return v;
     }
 
+    /**
+     * Ricerca sequenziale o lineare
+     * T(n) = O(n)
+     * 
+     * @param v     array in cui cercare
+     * @param vSize lunghezza dell'array
+     * @param value valore da cercare
+     */
     public static int linearSearch(int[] v, int vSize, int value) {
         for (int i = 0; i < vSize; i++)
             if (v[i] == value)
@@ -95,7 +103,7 @@ public class ArrayAlgs {
 
     /**
      * Ordina un array con selezione
-     * Difficoltà computazionale: O(n^2)
+     * T(n) = O(n^2)
      * 
      * @param v     array da ordinare
      * @param vSize lunghezza dell'array
@@ -127,7 +135,7 @@ public class ArrayAlgs {
 
     /**
      * Ordina un array con fusione
-     * Difficoltà computazionale: O(n log n)
+     * T(n) = O(n log n)
      * 
      * @param v     array da ordinare
      * @param vSize lunghezza dell'array
@@ -161,9 +169,8 @@ public class ArrayAlgs {
 
     /**
      * Ordina un array con inserimento
-     * Difficoltà computazionale:
-     * caso migliore O(n)
-     * caso peggiore O(n^2)
+     * caso migliore T(n) = O(n)
+     * caso peggiore T(n) = O(n^2)
      * 
      * @param v     array da ordinare
      * @param vSize lunghezza dell'array
@@ -178,6 +185,16 @@ public class ArrayAlgs {
         } // inserisci temp in posizione
     }
 
+    /**
+     * Ricerca binaria
+     * T(n) = O(log n)
+     * 
+     * @param v     array in cui cercare
+     * @param vSize lunghezza dell'array
+     * @param from  indice inizio ricerca
+     * @param to    indice fine ricerca
+     * @param value valore da cercare
+     */
     public static int binarySearch(Comparable[] v, int vSize,
             Comparable value) {
         return binSearch(v, 0, vSize - 1, value);
@@ -186,7 +203,7 @@ public class ArrayAlgs {
     private static int binSearch(Comparable[] v, int from, int to,
             Comparable value) {
         if (from > to)
-            return -1; // el. non trovato
+            return -1; // caso base: el. non trovato
         int mid = (from + to) / 2; // circa in mezzo
         Comparable middle = v[mid];
         if (middle.compareTo(value) == 0)
