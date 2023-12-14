@@ -17,6 +17,11 @@ public class SavingsAccount extends SimpleBankAccount {
         withdraw(FEE);
     }
 
+    public String toString() {
+        return super.toString() +
+                "[interestRate=" + interestRate + "]";
+    }
+
     private final static double FEE = 2.58; // euro
     private double interestRate;
 }
