@@ -1,8 +1,4 @@
 public class ArrayAlgs {
-    public interface Comparable {
-        int compareTo(Object other);
-    }
-
     public static void remove(int[] v, int vSize, int index) {
         v[index] = v[vSize - 1];
     }

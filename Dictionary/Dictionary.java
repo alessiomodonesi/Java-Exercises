@@ -1,8 +1,4 @@
 public interface Dictionary extends Container {
-    public interface Comparable {
-        int compareTo(Object other);
-    }
-
     // l'inserimento va sempre a buon fine; se la chiave non
     // esiste la coppia viene aggiunta al dizionario. Se esiste,
     // il valore a essa associato viene sovrascritto dal nuovo
