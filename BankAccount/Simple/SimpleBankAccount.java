@@ -15,6 +15,11 @@ public class SimpleBankAccount {
         balance = balance - amount;
     }
 
+    public void transfer(double amount, SimpleBankAccount other) {
+        withdraw(amount); // ovvero, this.withdraw(...)
+        other.deposit(amount);
+    }
+
     public double getBalance() {
         return balance;
     }
