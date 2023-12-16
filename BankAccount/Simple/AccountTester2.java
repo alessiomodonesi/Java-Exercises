@@ -4,7 +4,7 @@ public class AccountTester2 {
         SimpleBankAccount harrysChecking = new CheckingAccount(100);
 
         // metodi polimorfici di SimpleBankAccount e sue sottoclassi
-        momsSavings.deposit(10000);// vengono invocati i metodi delle
+        momsSavings.deposit(10000); // vengono invocati i metodi delle
         momsSavings.transfer(2000, harrysChecking); // sottoclassi
         harrysChecking.withdraw(1500); // anche se i riferimenti sono
         harrysChecking.withdraw(80); // di tipo SimpleBankAccount
