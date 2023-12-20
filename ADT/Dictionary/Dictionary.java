@@ -1,3 +1,4 @@
+@SuppressWarnings("rawtypes")
 public interface Dictionary extends Container {
     // l'inserimento va sempre a buon fine; se la chiave non
     // esiste la coppia viene aggiunta al dizionario. Se esiste,

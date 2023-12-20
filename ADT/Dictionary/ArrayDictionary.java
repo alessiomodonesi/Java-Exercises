@@ -1,3 +1,4 @@
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class ArrayDictionary implements Dictionary {
     public ArrayDictionary() {
         v = new Pair[INITSIZE];
