@@ -1,3 +1,4 @@
+@SuppressWarnings({ "rawtypes", "unused" })
 public class ArraySortedSet implements SortedSet {
     public ArraySortedSet() {
         v = new Comparable[INITSIZE];

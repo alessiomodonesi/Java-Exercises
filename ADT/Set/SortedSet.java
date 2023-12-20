@@ -1,3 +1,4 @@
+@SuppressWarnings("rawtypes")
 public interface SortedSet extends Set {
     void add(Comparable obj);
 
