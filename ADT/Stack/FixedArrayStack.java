@@ -1,3 +1,6 @@
+/**
+ * Ogni operazione ha T(n) = O(1)
+ */
 public class FixedArrayStack implements Stack {
     public FixedArrayStack() {
         v = new Object[INITSIZE];

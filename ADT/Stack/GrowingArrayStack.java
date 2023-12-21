@@ -1,4 +1,8 @@
 public class GrowingArrayStack extends FixedArrayStack {
+    /**
+     * Senza costante additiva (k * vSize), T(n) = O(1)
+     * Con costante additiva (k + vSize), T(n) = O(n)
+     */
     public void push(Object obj) {
         if (vSize == v.length)
             v = resize(2 * vSize);
