@@ -24,5 +24,10 @@ public class SimpleBankAccount {
         return balance;
     }
 
+    public String toString() {
+        return getClass().getName() +
+                "[balance=" + balance + "]";
+    }
+
     private double balance;
 }
