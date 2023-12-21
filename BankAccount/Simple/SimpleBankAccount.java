@@ -24,6 +24,11 @@ public class SimpleBankAccount {
         return balance;
     }
 
+    public boolean equals(Object otherObject) {
+        SimpleBankAccount otherAcct = (SimpleBankAccount) otherObject;
+        return balance == otherAcct.balance;
+    }
+
     public String toString() {
         return getClass().getName() +
                 "[balance=" + balance + "]";
