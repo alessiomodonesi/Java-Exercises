@@ -15,14 +15,6 @@ class BankAccount implements Comparable<BankAccount> {
         accountNumber = lastNumberAssigned;
     }
 
-    public int compareTo(BankAccount obj) {
-        if (balance < obj.balance)
-            return -1;
-        if (balance > obj.balance)
-            return 1;
-        return 0;
-    }
-
     public boolean deposit(double amount) {
         if (amount > 0) {
             balance += amount;
@@ -50,6 +42,14 @@ class BankAccount implements Comparable<BankAccount> {
     public boolean equals(Object otherObject) {
         BankAccount otherAcct = (BankAccount) otherObject;
         return balance == otherAcct.balance;
+    }
+
+    public int compareTo(BankAccount obj) {
+        if (balance < obj.balance)
+            return -1; // non serve il cast
+        if (balance > obj.balance)
+            return 1;
+        return 0;
     }
 
     public String toString() {
