@@ -1,3 +1,6 @@
+/**
+ * Ogni operazione ha T(n) = O(1)
+ */
 public interface Deque extends Container {
     void addFirst(Object obj); // inserimento ai due capi
 
