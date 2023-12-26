@@ -1,3 +1,6 @@
+/**
+ * Ogni operazione ha T(n) = O(1)
+ */
 public class FixedArrayQueue implements Queue {
     public FixedArrayQueue() {
         v = new Object[INITSIZE];

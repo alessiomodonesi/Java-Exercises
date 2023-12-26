@@ -24,6 +24,9 @@ public class SlowFixedArrayQueue implements Queue {
         return v[0];
     }
 
+    /**
+     * T(n) = O(n)
+     */
     public Object dequeue() {
         Object obj = getFront();
         vSize--;

@@ -1,4 +1,6 @@
-
+/**
+ * Ogni operazione ha T(n) = O(1)
+ */
 public class GrowingArrayQueue extends FixedArrayQueue {
     public void enqueue(Object obj) {
         if (back == v.length)

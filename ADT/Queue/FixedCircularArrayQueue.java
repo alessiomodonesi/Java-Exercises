@@ -8,7 +8,7 @@ public class FixedCircularArrayQueue extends FixedArrayQueue {
 
     public void enqueue(Object obj) // SOVRASCRITTO!
     {
-        if (increment(back) == front)// condizione di coda piena
+        if (increment(back) == front) // condizione di coda piena
             throw new FullQueueException();
         v[back] = obj;
         back = increment(back);
