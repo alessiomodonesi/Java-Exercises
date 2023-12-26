@@ -13,13 +13,6 @@ public class ArrayDictionary implements Dictionary {
         vSize = 0;
     }
 
-    public String toString() {
-        String s = "";
-        for (int i = 0; i < vSize; i++)
-            s = s + v[i] + "\n";
-        return s;
-    }
-
     public void insert(Comparable key, Object value) {
         if (key == null)
             throw new IllegalArgumentException();
@@ -37,14 +30,6 @@ public class ArrayDictionary implements Dictionary {
         v[vSize++] = new Pair(key, value);
     }
 
-    protected Pair[] resize(int newLength) {
-        if (newLength < v.length)
-            throw new IllegalArgumentException();
-        Pair[] newv = new Pair[newLength];
-        System.arraycopy(v, 0, newv, 0, v.length);
-        return newv;
-    }
-
     public void remove(Comparable key) {
         v[linearSearch(key)] = v[--vSize];
     }
@@ -59,6 +44,21 @@ public class ArrayDictionary implements Dictionary {
             if (v[i].getKey().compareTo(key) == 0)
                 return i;
         throw new DictionaryItemNotFoundException();
+    }
+
+    protected Pair[] resize(int newLength) {
+        if (newLength < v.length)
+            throw new IllegalArgumentException();
+        Pair[] newv = new Pair[newLength];
+        System.arraycopy(v, 0, newv, 0, v.length);
+        return newv;
+    }
+
+    public String toString() {
+        String s = "";
+        for (int i = 0; i < vSize; i++)
+            s = s + v[i] + "\n";
+        return s;
     }
 
     // campi di esemplare

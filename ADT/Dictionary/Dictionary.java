@@ -1,3 +1,17 @@
+
+/**
+ * Dizionario con array ordinato
+ * insert() ha prestazioni O(n)
+ * remove() ha prestazioni O(n)
+ * find() ha prestazioni O(log n)
+ * 
+ * Dizionario con array non ordinato
+ * insert() ha prestazioni O(n)
+ * O(1) per chiavi non uniche
+ * remove() ha prestazioni O(n)
+ * find() ha prestazioni O(n)
+ */
+
 @SuppressWarnings("rawtypes")
 public interface Dictionary extends Container {
     // l'inserimento va sempre a buon fine; se la chiave non
