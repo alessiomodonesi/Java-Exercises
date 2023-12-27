@@ -12,7 +12,7 @@ public class ArraySet implements Set {
         return (vSize == 0);
     }
 
-    public void add(Object x) // prestazioni O(n) (usa contains)
+    public void add(Object x) // T(n) = O(n) (usa contains)
     {
         if (contains(x))
             return;
@@ -21,7 +21,7 @@ public class ArraySet implements Set {
         v[vSize++] = x;
     }
 
-    public boolean contains(Object x) // metodo con prestazioni O(n)
+    public boolean contains(Object x) // T(n) = O(n)
     {
         for (int i = 0; i < vSize; i++)
             if (v[i].equals(x))
@@ -29,7 +29,7 @@ public class ArraySet implements Set {
         return false; // compareTo perchè x è solo un Object
     }
 
-    public Object[] toArray() // metodo con prestazioni O(n)
+    public Object[] toArray() // T(n) = O(n)
     {
         Object[] x = new Object[vSize]; // creiamo un nuovo array
         System.arraycopy(v, 0, x, 0, vSize); // altrimenti si viola l’incapsulamento
