@@ -210,4 +210,40 @@ public class ArrayAlgs {
         else // cerca a sinistra
             return binSearch(v, from, mid - 1, value);
     }
+
+    /**
+     * Genera un array bidimensionale con i
+     * valori delle potenze di x^y.
+     * 
+     * @param x numero di righe
+     * @param y numero di colonne
+     * @return matrice
+     */
+    public static int[][] generatePowers(int x, int y) {
+        int[][] powers = new int[x][y];
+        for (int i = 0; i < x; i++)
+            for (int j = 0; j < y; j++)
+                powers[i][j] = (int) Math.round(Math.pow(i + 1, j + 1));
+        return powers;
+    }
+
+    /**
+     * Visualizza un array bidimensionale di
+     * numeri interi con colonne di larghezza
+     * fissa e valori allineati a destra.
+     * 
+     * @param v     matrice
+     * @param width numero di colonne
+     */
+    public static void printPowers(int[][] v, int width) {
+        for (int i = 0; i < v.length; i++) {
+            for (int j = 0; j < v[i].length; j++) {
+                String s = Integer.toString(v[i][j]);
+                while (s.length() < width)
+                    s = " " + s;
+                System.out.print(s);
+            }
+            System.out.println();
+        }
+    }
 }
