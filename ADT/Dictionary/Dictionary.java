@@ -1,15 +1,13 @@
-
 /**
- * Dizionario con array ordinato
- * insert() ha prestazioni O(n)
- * remove() ha prestazioni O(n)
- * find() ha prestazioni O(log n)
+ * Chiavi ordinate
+ * insert(): O(n), O(n log n) con altro algoritmo
+ * remove(): O(n)
+ * find(): O(log n)
  * 
- * Dizionario con array non ordinato
- * insert() ha prestazioni O(n)
- * O(1) per chiavi non uniche
- * remove() ha prestazioni O(n)
- * find() ha prestazioni O(n)
+ * Chiavi NON ordinate
+ * insert(): O(n)
+ * remove(): O(n), O(1) per chiavi non uniche
+ * find(): O(n)
  */
 
 @SuppressWarnings("rawtypes")
