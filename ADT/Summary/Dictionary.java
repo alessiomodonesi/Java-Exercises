@@ -1,4 +1,3 @@
-
 /**
  * Dizionario con array ordinato
  * insert() ha prestazioni O(n)
