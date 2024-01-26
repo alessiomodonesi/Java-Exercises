@@ -1,3 +1,6 @@
+/**
+ * T(n) = O(1)
+ */
 public interface Queue extends Container {
     void enqueue(Object obj);
 
