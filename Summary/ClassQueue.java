@@ -1,12 +1,12 @@
 /**
  * Ogni operazione ha T(n) = O(1)
  */
-public class ArrayQueue implements Queue {
+public class ClassQueue implements Queue {
     protected Object[] v;
     protected int front, back;
     public static final int INITSIZE = 100;
 
-    public ArrayQueue() {
+    public ClassQueue() {
         v = new Object[INITSIZE];
         makeEmpty();
     }

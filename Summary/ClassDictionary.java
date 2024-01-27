@@ -1,5 +1,5 @@
 @SuppressWarnings("rawtypes")
-public interface Dictionary extends Container {
+interface ClassDictionary extends Container {
     /**
      * se la chiave NON esiste la coppia viene aggiunta al dizionario
      * se esiste, il valore a essa associato viene sovrascritto dal nuovo valore
@@ -29,6 +29,5 @@ public interface Dictionary extends Container {
     Object find(Comparable key);
 }
 
-// Eccezione che segnala il mancato ritrovamento di una chiave
 class DictionaryItemNotFoundException extends RuntimeException {
 }

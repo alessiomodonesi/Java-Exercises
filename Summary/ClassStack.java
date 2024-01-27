@@ -1,12 +1,12 @@
 /**
  * Ogni operazione ha T(n) = O(1)
  */
-public class ArrayStack implements Stack {
+public class ClassStack implements Stack {
     protected Object[] v;
     protected int vSize;
     public static final int INITSIZE = 100;
 
-    public ArrayStack() {
+    public ClassStack() {
         v = new Object[INITSIZE];
         makeEmpty();
     }
