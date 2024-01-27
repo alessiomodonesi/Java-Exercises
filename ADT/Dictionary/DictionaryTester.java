@@ -5,7 +5,7 @@ import java.io.*;
  * creazione dizionario: leggo dati da file e assumo che
  * il file abbia righe nel formato <numero int> <stringa>
  */
-public class SimpleDictionaryTester {
+public class DictionaryTester {
     public static void main(String[] args) throws IOException {
         Scanner infile = new Scanner(new FileReader("file.txt"));
         Dictionary dict = new ArrayDictionary();

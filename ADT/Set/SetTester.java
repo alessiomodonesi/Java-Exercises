@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.io.*;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
-public class SimpleSetTester {
+public class SetTester {
     public static void main(String[] args) throws IOException {
         // creazione degli insiemi:
         // leggo dati da file e assumo che il file contenga numeri interi, uno per riga
