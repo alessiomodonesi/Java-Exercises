@@ -59,7 +59,7 @@ public class SimpleSetTester {
     }
 
     /**
-     * T(n) = O(n log n)
+     * Sorted T(n) = O(n log n)
      */
     public static SortedSet union(SortedSet s1, SortedSet s2) {
         SortedSet x = new ArraySortedSet();
@@ -85,6 +85,7 @@ public class SimpleSetTester {
 
     /**
      * T(n) = O(n^2)
+     * Sorted T(n) = O(n log n)
      */
     public static Set intersection(Set s1, Set s2) {
         Set x = new ArraySet();
@@ -101,6 +102,7 @@ public class SimpleSetTester {
 
     /**
      * T(n) = O(n^2)
+     * Sorted T(n) = O(n log n)
      */
     public static Set subtract(Set s1, Set s2) {
         Set x = new ArraySet();
