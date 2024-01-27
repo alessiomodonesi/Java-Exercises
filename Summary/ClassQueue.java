@@ -1,6 +1,14 @@
 /**
  * Ogni operazione ha T(n) = O(1)
  */
+interface Queue extends Container {
+    void enqueue(Object obj);
+
+    Object dequeue();
+
+    Object getFront();
+}
+
 public class ClassQueue implements Queue {
     protected Object[] v;
     protected int front, back;
@@ -54,14 +62,6 @@ public class ClassQueue implements Queue {
         System.arraycopy(v, 0, newv, 0, v.length);
         return newv;
     }
-}
-
-interface Queue extends Container {
-    void enqueue(Object obj);
-
-    Object dequeue();
-
-    Object getFront();
 }
 
 class EmptyQueueException extends RuntimeException {

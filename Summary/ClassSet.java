@@ -1,3 +1,14 @@
+/**
+ * Ogni operazione ha T(n) = O(n)
+ */
+interface Set extends Container {
+    void add(Object obj);
+
+    boolean contains(Object obj);
+
+    Object[] toArray();
+}
+
 public class ClassSet implements Set {
     private Object[] v;
     private int vSize;
@@ -16,7 +27,6 @@ public class ClassSet implements Set {
         return (vSize == 0);
     }
 
-    // T(n) = O(n) (usa contains)
     public void add(Object x) {
         if (contains(x))
             return;
@@ -25,7 +35,6 @@ public class ClassSet implements Set {
         v[vSize++] = x;
     }
 
-    // T(n) = O(n)
     public boolean contains(Object x) {
         for (int i = 0; i < vSize; i++)
             if (v[i].equals(x))
@@ -33,7 +42,6 @@ public class ClassSet implements Set {
         return false;
     }
 
-    // T(n) = O(n)
     public Object[] toArray() {
         Object[] x = new Object[vSize];
         System.arraycopy(v, 0, x, 0, vSize);
@@ -96,12 +104,4 @@ public class ClassSet implements Set {
         System.out.println();
     }
 
-}
-
-interface Set extends Container {
-    void add(Object obj);
-
-    boolean contains(Object obj);
-
-    Object[] toArray();
 }

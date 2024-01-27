@@ -1,6 +1,14 @@
 /**
  * Ogni operazione ha T(n) = O(1)
  */
+interface Stack extends Container {
+    void push(Object obj);
+
+    Object pop();
+
+    Object top();
+}
+
 public class ClassStack implements Stack {
     protected Object[] v;
     protected int vSize;
@@ -48,14 +56,6 @@ public class ClassStack implements Stack {
         System.arraycopy(v, 0, newv, 0, v.length);
         return newv;
     }
-}
-
-interface Stack extends Container {
-    void push(Object obj);
-
-    Object pop();
-
-    Object top();
 }
 
 class EmptyStackException extends RuntimeException {
