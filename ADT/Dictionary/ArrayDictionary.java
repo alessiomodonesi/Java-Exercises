@@ -5,14 +5,17 @@ public class ArrayDictionary implements Dictionary {
         makeEmpty();
     }
 
+    @Override
     public boolean isEmpty() {
         return vSize == 0;
     }
 
+    @Override
     public void makeEmpty() {
         vSize = 0;
     }
 
+    @Override
     public void insert(Comparable key, Object value) {
         if (key == null)
             throw new IllegalArgumentException();
@@ -30,10 +33,12 @@ public class ArrayDictionary implements Dictionary {
         v[vSize++] = new Pair(key, value);
     }
 
+    @Override
     public void remove(Comparable key) {
         v[linearSearch(key)] = v[--vSize];
     }
 
+    @Override
     public Object find(Comparable key) {
         return v[linearSearch(key)].getValue();
     }
@@ -54,6 +59,7 @@ public class ArrayDictionary implements Dictionary {
         return newv;
     }
 
+    @Override
     public String toString() {
         String s = "";
         for (int i = 0; i < vSize; i++)
