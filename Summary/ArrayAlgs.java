@@ -1,4 +1,3 @@
-@SuppressWarnings({ "rawtypes", "unchecked" })
 public class ArrayAlgs {
     /**
      * Ridimensiona l'array oldv attribuendogli la lunghezza newLength
@@ -24,7 +23,7 @@ public class ArrayAlgs {
      * @param v     array da ordinare
      * @param vSize lunghezza dell'array
      */
-    public static void selectionSort(Comparable[] v, int vSize) {
+    public static void selectionSort(int[] v, int vSize) {
         for (int i = 0; i < vSize - 1; i++) {
             int minPos = findMinPos(v, i, vSize - 1);
             if (minPos != i)
@@ -32,17 +31,17 @@ public class ArrayAlgs {
         }
     }
 
-    private static void swap(Comparable[] v, int i, int j) {
-        Comparable temp = v[i];
+    private static void swap(int[] v, int i, int j) {
+        int temp = v[i];
         v[i] = v[j];
         v[j] = temp;
     }
 
-    private static int findMinPos(Comparable[] v, int from, int to) {
+    private static int findMinPos(int[] v, int from, int to) {
         int pos = from;
-        Comparable min = v[from];
+        int min = v[from];
         for (int i = from + 1; i <= to; i++)
-            if (v[i].compareTo(min) < 0) {
+            if (v[i] < min) {
                 pos = i;
                 min = v[i];
             }
@@ -56,12 +55,12 @@ public class ArrayAlgs {
      * @param v     array da ordinare
      * @param vSize lunghezza dell'array
      */
-    public static void mergeSort(Comparable[] v, int vSize) {
+    public static void mergeSort(int[] v, int vSize) {
         if (vSize < 2)
             return; // caso base
         int mid = vSize / 2; // dividiamo circa a metà
-        Comparable[] left = new Comparable[mid];
-        Comparable[] right = new Comparable[vSize - mid];
+        int[] left = new int[mid];
+        int[] right = new int[vSize - mid];
         System.arraycopy(v, 0, left, 0, mid);
         System.arraycopy(v, mid, right, 0, vSize - mid);
         mergeSort(left, mid); // passi ricorsivi
@@ -69,11 +68,11 @@ public class ArrayAlgs {
         merge(v, left, right);
     }
 
-    private static void merge(Comparable[] v, Comparable[] v1,
-            Comparable[] v2) {
+    private static void merge(int[] v, int[] v1,
+            int[] v2) {
         int i = 0, i1 = 0, i2 = 0;
         while (i1 < v1.length && i2 < v2.length)
-            if (v1[i1].compareTo(v2[i2]) < 0)
+            if (v1[i1] < v2[i2])
                 v[i++] = v1[i1++];
             else
                 v[i++] = v2[i2++];
@@ -91,11 +90,11 @@ public class ArrayAlgs {
      * @param v     array da ordinare
      * @param vSize lunghezza dell'array
      */
-    public static void insertionSort(Comparable[] v, int vSize) {
+    public static void insertionSort(int[] v, int vSize) {
         for (int i = 1; i < vSize; i++) {
-            Comparable temp = v[i]; // elemento da inserire
+            int temp = v[i]; // elemento da inserire
             int j;
-            for (j = i; j > 0 && temp.compareTo(v[j - 1]) < 0; j--)
+            for (j = i; j > 0 && temp < v[j - 1]; j--)
                 v[j] = v[j - 1];
             v[j] = temp;
         } // inserisci temp in posizione
@@ -126,20 +125,20 @@ public class ArrayAlgs {
      * @param to    indice fine ricerca
      * @param value valore da cercare
      */
-    public static int binarySearch(Comparable[] v, int vSize,
-            Comparable value) {
+    public static int binarySearch(int[] v, int vSize,
+            int value) {
         return binSearch(v, 0, vSize - 1, value);
     }
 
-    private static int binSearch(Comparable[] v, int from, int to,
-            Comparable value) {
+    private static int binSearch(int[] v, int from, int to,
+            int value) {
         if (from > to)
             return -1; // caso base: el. non trovato
         int mid = (from + to) / 2; // circa in mezzo
-        Comparable middle = v[mid];
-        if (middle.compareTo(value) == 0)
+        int middle = v[mid];
+        if (middle == value)
             return mid; // trovato
-        else if (middle.compareTo(value) < 0) // cerca a destra
+        else if (middle < value) // cerca a destra
             return binSearch(v, mid + 1, to, value);
         else // cerca a sinistra
             return binSearch(v, from, mid - 1, value);
