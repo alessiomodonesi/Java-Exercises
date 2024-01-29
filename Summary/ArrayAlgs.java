@@ -68,8 +68,7 @@ public class ArrayAlgs {
         merge(v, left, right);
     }
 
-    private static void merge(int[] v, int[] v1,
-            int[] v2) {
+    private static void merge(int[] v, int[] v1, int[] v2) {
         int i = 0, i1 = 0, i2 = 0;
         while (i1 < v1.length && i2 < v2.length)
             if (v1[i1] < v2[i2])
@@ -130,8 +129,7 @@ public class ArrayAlgs {
         return binSearch(v, 0, vSize - 1, value);
     }
 
-    private static int binSearch(int[] v, int from, int to,
-            int value) {
+    private static int binSearch(int[] v, int from, int to, int value) {
         if (from > to)
             return -1; // caso base: el. non trovato
         int mid = (from + to) / 2; // circa in mezzo
