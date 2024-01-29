@@ -6,16 +6,14 @@ public class ArrayAlgs {
      * @param oldv      array su cui effettuare il resize
      * @param newLength nuova lunghezza dell'array
      * @return nuovo array di dimensione newlength
+     * @throws IllegalArgumentException
      */
     public static int[] resize(int[] oldv, int newLength) {
-        if (newLength < 0 || oldv == null)
+        if (newLength < oldv.length)
             throw new IllegalArgumentException();
+
         int[] newv = new int[newLength];
-        int count = oldv.length;
-        if (newLength < count)
-            count = newLength;
-        for (int i = 0; i < count; i++)
-            newv[i] = oldv[i];
+        System.arraycopy(oldv, 0, newv, 0, oldv.length);
         return newv;
     }
 
@@ -61,7 +59,7 @@ public class ArrayAlgs {
     public static void mergeSort(Comparable[] v, int vSize) {
         if (vSize < 2)
             return; // caso base
-        int mid = vSize / 2; // dividiamo circa a meta’
+        int mid = vSize / 2; // dividiamo circa a metà
         Comparable[] left = new Comparable[mid];
         Comparable[] right = new Comparable[vSize - mid];
         System.arraycopy(v, 0, left, 0, mid);
