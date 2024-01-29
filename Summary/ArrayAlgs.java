@@ -124,8 +124,7 @@ public class ArrayAlgs {
      * @param to    indice fine ricerca
      * @param value valore da cercare
      */
-    public static int binarySearch(int[] v, int vSize,
-            int value) {
+    public static int binarySearch(int[] v, int vSize, int value) {
         return binSearch(v, 0, vSize - 1, value);
     }
 
