@@ -4,7 +4,11 @@ interface Dictionary extends Container {
      * se la chiave NON esiste la coppia viene aggiunta al dizionario
      * se esiste, il valore a essa associato viene sovrascritto dal nuovo valore
      * 
-     * T(n) = O(n), O(n log n) con altro algoritmo
+     * Chiavi ordinate
+     * T(n) = O(n) con insertion sort, O(n log n) con altro algoritmo
+     * 
+     * Chiavi NON ordinate
+     * T(n) = O(n), O(1) per chiavi non uniche
      * 
      * @exception IllegalArgumentException se key è null
      */
@@ -14,14 +18,18 @@ interface Dictionary extends Container {
      * la rimozione della chiave rimuove anche il
      * corrispondente valore dal dizionario
      * 
-     * T(n) = O(n), O(1) per chiavi non uniche
+     * T(n) = O(n)
      * 
      * @exception DictionaryItemNotFoundException se la chiave non esiste
      */
     void remove(Comparable key);
 
     /**
-     * T(n) = O(n), O(log n) per chiavi ordinate
+     * Chiavi ordinate
+     * T(n) = O(log n)
+     * 
+     * Chiavi NON ordinate
+     * T(n) = O(n)
      * 
      * @exception DictionaryItemNotFoundException se la chiave non esiste
      * @return valore associato alla chiave

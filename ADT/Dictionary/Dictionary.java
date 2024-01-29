@@ -1,12 +1,12 @@
 /**
  * Chiavi ordinate
- * insert(): O(n), O(n log n) con altro algoritmo
+ * insert(): O(n) con insertion sort, O(n log n) con altro algoritmo
  * remove(): O(n)
  * find(): O(log n)
  * 
  * Chiavi NON ordinate
- * insert(): O(n)
- * remove(): O(n), O(1) per chiavi non uniche
+ * insert(): O(n), O(1) per chiavi non uniche
+ * remove(): O(n)
  * find(): O(n)
  */
 
